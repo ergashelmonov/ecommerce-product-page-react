@@ -1,0 +1,145 @@
+.product-info {
+  max-width: 445px;
+}
+
+.product-info_company {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ff7e1b;
+  margin-bottom: 24px;
+}
+
+.product-info_title {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 109%;
+  color: #1d2026;
+  margin-bottom: 32px;
+}
+
+.product-info_description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 162%;
+  color: #69707d;
+  margin-bottom: 24px;
+}
+.price {
+  margin-bottom: 32px;
+}
+
+.price-cost {
+  font-weight: 700;
+  font-size: 28px;
+  color: #1d2026;
+  text-justify: end;
+}
+
+.price-cost > span {
+  background: #ffeee2;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ff7e1b;
+  padding: 7px 8px;
+  margin-left: 23px;
+  margin-bottom: 8px;
+}
+
+.price > s {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 162%;
+  color: #b6bcc8;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter-btns {
+  border-radius: 10px;
+  width: 157px;
+  height: 56px;
+  background: #f6f8fd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+}
+
+.counter-btns > button {
+  color: #ff7e1b;
+  font-weight: 900;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.counter-btns > p {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  color: #1d2026;
+}
+
+.add-cart_btn {
+  border-radius: 10px;
+  width: 272px;
+  height: 56px;
+  box-shadow: 0 20px 50px -20px #ff7e1b;
+  background: #ff7e1b;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.add-cart_btn:hover {
+  background: #ff7e1b76;
+}
+
+.add-cart_btn > svg {
+  margin-right: 15px;
+}
+.add-cart_btn > svg > path {
+  fill: #fff;
+}
+
+@media screen and (max-width: 475px) {
+  .product-info {
+    max-width: 475px;
+    padding: 24px ;
+  }
+  .product-info_company {
+    font-size: 12px;
+    margin-bottom: 19px;
+  }
+  .product-info_title {
+    font-size: 28px;
+    line-height: 114%;
+    margin-bottom: 15px;
+  }
+  .product-info_description {
+    font-size: 15px;
+    line-height: 167%;
+  }
+  .price {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btns {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .counter-btns {
+    width: 100%;
+  }
+  .add-cart_btn {
+    width: 100%;
+  }
+}
