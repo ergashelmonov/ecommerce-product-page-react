@@ -19,8 +19,12 @@ const Modal = () => {
   const [photoId, setPhotoId] = useState(1);
   const { isModal, setIsModal } = useContext(Context);
 
+  isModal ? document.querySelector('#root').classList.add('body-scroll'): document.querySelector('#root').classList.remove('body-scroll');
+
   return (
-    <div className="modal-wrapper">
+    <div className="modal-wrapper" onClick={({target}) => {
+      target.className === "modal-wrapper"&&setIsModal(!isModal)
+    }}>
       <div className="modal-photos">
         <button
           className="modal-btn modal-btn_left"
@@ -45,7 +49,7 @@ const Modal = () => {
         <div className="modal-collection-photo">
           {images.map(({ id, url }) => {
             return (
-              <div key={id} className={photoId == id ? "active-img" : ""}>
+              <div key={id} className={photoId === id ? "active-img" : ""}>
                 <img
                   onClick={() => setPhotoId(id)}
                   src={url}

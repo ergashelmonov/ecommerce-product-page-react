@@ -21,7 +21,7 @@ const ProductPhotos = () => {
     <div className="product-photos">
       <div className="main-photo">
         <button
-          className="modal-btn modal-btn_left"
+          className="modal-btn modal-btn_left mobile"
           onClick={() => {
             photoId <= 1 ? setPhotoId(4) : setPhotoId(photoId - 1);
           }}
@@ -29,7 +29,7 @@ const ProductPhotos = () => {
           <Arrow />
         </button>
         <button
-          className="modal-btn modal-btn_right"
+          className="modal-btn modal-btn_right mobile"
           onClick={() => {
             4 <= photoId ? setPhotoId(1) : setPhotoId(photoId + 1);
           }}
@@ -39,13 +39,15 @@ const ProductPhotos = () => {
         <img
           src={images[photoId - 1].url}
           alt="product photo"
-          onClick={() => setIsModal(!isModal)}
+          onClick={() => {
+              setIsModal(!isModal)
+          }}
         />
       </div>
       <div className="collection-photo">
         {images.map(({ id, url }) => {
           return (
-            <div key={id} className={photoId == id ? "active-img" : ""}>
+            <div key={id} className={photoId === id ? "active-img" : ""}>
               <img
                 onClick={() => setPhotoId(id)}
                 src={url}

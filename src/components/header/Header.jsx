@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { createContext, useContext, useState } from "react";
+import {createContext, useContext, useEffect, useRef, useState} from "react";
 import { Context } from "../../App";
 import HeaderModal from "./modal/HeaderModal";
 import Popup from "../popup/Popup";
@@ -24,12 +24,28 @@ const Header = () => {
   const [isPopup, setIsPopup] = useState(false);
   const [modal, setModal] = useState(false);
   const { productCount } = useContext(Context);
+  const clickRef = useRef()
+
+
+
+  useEffect(()=>{
+    clickRef.current.onclick=(e)=>{
+      console.log(e.target)
+      isPopup?setIsPopup(e.target.tagName!=='h2'&& e.target.className!=='products'
+      && e.target.className!=='clear-btn'&& e.target.className!=='clear'&&e.target.tagName!=='path'?!isPopup:isPopup):''
+    };
+  },[isPopup])
+
+
   return (
     <>
       <ModalContext.Provider value={{ modal, setModal }}>
-        {modal ? <HeaderModal /> : ""}
+        {modal ? (<HeaderModal /> ): ""}
+
+        {modal ? document.body.classList.add('body-scroll') : document.body.classList.remove('body-scroll')}
+
       </ModalContext.Provider>
-      <header className="header">
+      <header className="header" ref={clickRef}>
         <Burger className="burger" onClick={() => setModal(!modal)} />
         <div className="logo">
           <Logo />
@@ -41,7 +57,7 @@ const Header = () => {
               return (
                 <li
                   key={key}
-                  className={key == activeId ? "nav-list_active" : ""}
+                  className={key === activeId ? "nav-list_active" : ""}
                   onClick={() => setActiveId(() => key)}
                 >
                   <a href={link}>{text}</a>
